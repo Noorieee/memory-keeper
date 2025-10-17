@@ -11,14 +11,15 @@ import { theme } from "./theme";
 // Styled component that uses the theme
 const ThemedDiv = styled.div(({ theme }) => {
   return `
-      background-color: ${theme.primary};
-      color: ${theme.text};
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 16px;
+      background-color: ${theme.colors.primary.main};
+      color: ${theme.colors.text};
+      padding: ${theme.spacing.xs}px;
+      border-radius: ${theme.radii.md}px;
+      font-size: ${theme.fontSizes.xs}px;
+      font-family: ${theme.fontFamilies.primary};
       transition: background-color 0.25s;
       &:hover {
-        background-color: ${theme.secondary};
+        background-color: ${theme.colors.primary.dark};
       }
     `;
 });
