@@ -3,8 +3,18 @@ import twColors from "tailwindcss/colors"
 export interface Colors {
   primary: Color
   secondary: string
-  text: string
-  background: string
+  text: Color
+  surface: Color
+  background: Color
+  danger: Color
+  success: Color
+  warning: Color
+  amber: Color
+  pink: Color
+  sky: Color
+  emerald: Color
+  violet: Color
+  orange: Color
 }
 
 export interface Color {
@@ -31,8 +41,9 @@ export interface Radii extends Sizing {}
 export interface FontSizes extends ExtendedSizing {}
 
 export interface FontFamilies {
-  primary: string
-  secondary: string
+  heading: string
+  body: string
+  handWritten: string
 }
 
 export interface Theme {
@@ -47,14 +58,72 @@ const brand = "violet"
 
 export const theme: Theme = {
   colors:{
-    primary:{
-      main: twColors[brand][500],
-      dark: twColors[brand][950],
-      light: twColors[brand][100]
+    primary: {
+      main: twColors[brand][300],
+      dark: twColors[brand][500],
+      light: twColors[brand][100],
     },
-    secondary: twColors[brand][800],
-    text: twColors.stone[50],
-    background: twColors.stone[950],
+    secondary: twColors[brand][100],
+    surface: {
+      main: twColors.indigo[700],
+      dark: twColors.indigo[950],
+      light: twColors.indigo[50],
+    },
+    text: {
+      main: twColors.violet[100],
+      dark: twColors.violet[300],
+      light: twColors.violet[50],
+    },
+    background: {
+      main: twColors.neutral[800],
+      dark: twColors.neutral[900],
+      light: twColors.neutral[50],
+    },
+    danger: {
+      main: twColors.amber[500],
+      dark: twColors.amber[800],
+      light: twColors.amber[200],
+    },
+    success: {
+      main: twColors.emerald[500],
+      dark: twColors.emerald[800],
+      light: twColors.emerald[200],
+    },
+    warning: {
+      main: twColors.red[500],
+      dark: twColors.red[800],
+      light: twColors.red[200],
+    },
+    amber: {
+      main: twColors.amber[200],
+      dark: twColors.amber[300],
+      light: twColors.amber[100],
+    },
+    pink: {
+      main: twColors.pink[200],
+      dark: twColors.pink[300],
+      light: twColors.pink[100],
+    },
+    sky: {
+      main: twColors.sky[200],
+      dark: twColors.sky[300],
+      light: twColors.sky[100],
+    },
+    emerald: {
+      main: twColors.emerald[200],
+      dark: twColors.emerald[300],
+      light: twColors.emerald[100],
+    },
+    violet: {
+      main: twColors.violet[200],
+      dark: twColors.violet[300],
+      light: twColors.violet[100],
+    },
+    orange: {
+      main: twColors.orange[200],
+      dark: twColors.orange[300],
+      light: twColors.orange[100],
+    }
   },
   spacing:{
     xs: 4,
@@ -76,15 +145,8 @@ export const theme: Theme = {
     xl: 30,
   },
   fontFamilies:{
-    primary: "Comic Sans MS",
-    secondary: "Times New Roman"
+    heading: "Comic Sans MS",
+    body: "Times New Roman",
+    handWritten: "Times New Roman"
   }
-
 }
-
-// export const lightTheme: Theme = {
-//   primary: "",
-//   secondary: "",
-//   text: "",
-//   background: ""
-// }

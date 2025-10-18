@@ -12,7 +12,7 @@ import { theme } from "./theme";
 const ThemedDiv = styled.div(({ theme }) => {
   return `
       background-color: ${theme.colors.primary.main};
-      color: ${theme.colors.text};
+      color: ${theme.colors.text.main};
       padding: ${theme.spacing.xs}px;
       border-radius: ${theme.radii.md}px;
       font-size: ${theme.fontSizes.xs}px;
