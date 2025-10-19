@@ -2,7 +2,6 @@ import twColors from "tailwindcss/colors"
 
 export interface Colors {
   primary: Color
-  secondary: string
   text: Color
   surface: Color
   background: Color
@@ -23,8 +22,6 @@ export interface Color {
   light: string
 }
 
-export interface Spacing extends ExtendedSizing {}
-
 export interface Sizing {
   sm: number
   md: number
@@ -39,6 +36,8 @@ export interface ExtendedSizing extends Sizing {
 export interface Radii extends Sizing {}
 
 export interface FontSizes extends ExtendedSizing {}
+
+export interface Spacing extends ExtendedSizing {}
 
 export interface FontFamilies {
   heading: string
@@ -63,7 +62,6 @@ export const theme: Theme = {
       dark: twColors[brand][400],
       light: twColors[brand][200],
     },
-    secondary: twColors[brand][100],
     surface: {
       main: twColors.zinc[800],
       dark: twColors.zinc[900],
