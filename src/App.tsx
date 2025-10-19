@@ -16,7 +16,7 @@ const ThemedDiv = styled.div(({ theme }) => {
       padding: ${theme.spacing.xs}px;
       border-radius: ${theme.radii.md}px;
       font-size: ${theme.fontSizes.xs}px;
-      font-family: ${theme.fontFamilies.primary};
+      font-family: ${theme.fontFamilies.body};
       transition: background-color 0.25s;
       &:hover {
         background-color: ${theme.colors.primary.dark};
