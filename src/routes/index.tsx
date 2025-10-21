@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import Nav from '../features/Nav'
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -6,8 +7,11 @@ export const Route = createFileRoute('/')({
 
 function Index() {
   return (
+    <>
+    <Nav/>
     <div>
       <h3>Welcome Home!</h3>
     </div>
+    </>
   )
 }
