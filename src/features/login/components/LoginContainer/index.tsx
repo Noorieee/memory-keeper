@@ -20,9 +20,10 @@ const FormContainer = styled.div(({ theme }) => {
       border-radius: ${theme.radii.lg}px;
       gap: ${theme.spacing.lg}px;
       border: 2px solid ${theme.colors.background.light};
-      width: 450px;
+      width: 100%;
+      max-width: 450px;
       height: fit-content;
-      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      box-shadow: ${theme.shadows.md};
       display: flex;
       flex-direction: column;
     `;

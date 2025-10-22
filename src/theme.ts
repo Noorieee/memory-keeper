@@ -45,12 +45,19 @@ export interface FontFamilies {
   handWritten: string
 }
 
+export interface Shadows {
+  sm: string
+  md: string
+  lg: string
+}
+
 export interface Theme {
   colors: Colors
   spacing: Spacing
   radii: Radii
   fontSizes: FontSizes
   fontFamilies: FontFamilies
+  shadows: Shadows
 }
 
 const brand = "violet"
@@ -146,5 +153,10 @@ export const theme: Theme = {
     heading: "Comic Sans MS",
     body: "Times New Roman",
     handWritten: "Times New Roman"
+  },
+  shadows:{
+    sm: "rgba(99, 99, 99, 0.15) 0px 1px 4px 0px",
+    md: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+    lg: "rgba(99, 99, 99, 0.25) 0px 5px 15px 0px"
   }
 }

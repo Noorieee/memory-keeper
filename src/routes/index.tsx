@@ -8,10 +8,10 @@ export const Route = createFileRoute('/')({
 function Index() {
   return (
     <>
-    <Nav/>
-    <div>
-      <h3>Welcome Home!</h3>
-    </div>
+      <Nav />
+      <div>
+        <h3>Welcome Home!</h3>
+      </div>
     </>
   )
 }
