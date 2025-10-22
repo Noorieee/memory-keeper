@@ -33,11 +33,11 @@ export interface ExtendedSizing extends Sizing {
   xl: number
 }
 
-export interface Radii extends Sizing {}
+export type Radii = Sizing
 
-export interface FontSizes extends ExtendedSizing {}
+export type FontSizes = ExtendedSizing
 
-export interface Spacing extends ExtendedSizing {}
+export type Spacing = ExtendedSizing
 
 export interface FontFamilies {
   heading: string
