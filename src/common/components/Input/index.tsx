@@ -6,8 +6,24 @@ const InputContainer = styled.div(({ theme }) => {
       width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      background-color: ${theme.colors.primary.main};
+      gap: ${theme.spacing.sm}px;
+    `;
+});
+
+const InputLabel = styled.label(({ theme }) => {
+  return `
+      color: ${theme.colors.primary.main};
+      font-size: ${theme.fontSizes.sm}px;
+    `;
+});
+
+const InputBox = styled.input(({ theme }) => {
+  return `
+      padding: ${theme.spacing.sm}px;
+      border: 2px solid ${theme.colors.primary.main};
+      border-radius: ${theme.radii.sm}px;
+      background-color: ${theme.colors.surface.main};
+      color: ${theme.colors.text.main};
     `;
 });
 
@@ -27,8 +43,8 @@ const Input = ({label, type, placeholder, value, onChange}:InputProps) => {
   // const{label, placeholder, value, onChange}=props
   return (
     <InputContainer>
-      <label>{label}</label>
-      <input type={type} placeholder={placeholder} value={value} onChange={handleOnChange}/>
+      <InputLabel>{label}</InputLabel>
+      <InputBox type={type} placeholder={placeholder} value={value} onChange={handleOnChange}/>
     </InputContainer>
   )
 }

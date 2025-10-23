@@ -18,9 +18,9 @@ const FormContainer = styled.div(({ theme }) => {
   return `
       background-color: ${theme.colors.surface.main};
       color: ${theme.colors.text.main};
-      padding: ${theme.spacing.lg}px;
+      padding: ${theme.spacing.xl}px;
       border-radius: ${theme.radii.lg}px;
-      gap: ${theme.spacing.lg}px;
+      gap: ${theme.spacing.xl}px;
       border: 2px solid ${theme.colors.background.light};
       width: 100%;
       max-width: 450px;
@@ -36,7 +36,7 @@ const IntroContainer = styled.div(({ theme }) => {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: ${theme.spacing.sm}px;
+      gap: ${theme.spacing.md}px;
     `;
 });
 
@@ -48,6 +48,33 @@ const IconContainer = styled.div(({ theme }) => {
       background-color: ${theme.colors.primary.main};
       border-radius: ${theme.radii.lg}px;
       color: ${theme.colors.surface.main};
+    `;
+});
+
+const Heading = styled.h1(({ theme }) => {
+  return `
+      font-size: ${theme.fontSizes.xl}px;
+    `;
+});
+
+const Body = styled.p(({ theme }) => {
+  return `
+      font-size: ${theme.fontSizes.sm}px;
+    `;
+});
+
+const InputsContainer = styled.div(({ theme }) => {
+  return `
+      display: flex;
+      flex-direction: column;    
+      gap: ${theme.spacing.md}px;
+    `;
+});
+
+const Tagline = styled.div(({ theme }) => {
+  return `
+      text-align: center;
+      font-size: ${theme.fontSizes.sm}px;
     `;
 });
 
@@ -70,13 +97,14 @@ const LoginContainer = () => {
           <IconContainer>
             <FontAwesomeIcon icon={faBook} size="2x" />
           </IconContainer>
-          <h1>The Memory Keeper</h1>
-          <p>Welcome back to your private sanctuary</p>
+          <Heading><i>The Memory Keeper</i></Heading>
+          <Body>Welcome back to your private sanctuary</Body>
+        </IntroContainer>
+        <InputsContainer>
           <Input label={"Email"} type={"email"} placeholder={"your@email.com"} value={emailValue} onChange={handleEmailOnChange}/>
           <Input label={"Password"} type={"password"} placeholder={"********"} value={passwordValue} onChange={handlePasswordOnChange}/>
-        </IntroContainer>
-        <p>fdgdfg</p>
-        <p>fddfg</p>
+        </InputsContainer>
+        <Tagline><i>Your memories are safe with us ♡</i></Tagline>
       </FormContainer>
     </Container>
   )
