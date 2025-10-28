@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
-import type { ChangeEvent } from "react";
+import { type IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState, type ChangeEvent, type FocusEventHandler } from "react";
 
 const InputContainer = styled.div(({ theme }) => {
   return `
@@ -17,13 +19,30 @@ const InputLabel = styled.label(({ theme }) => {
     `;
 });
 
+const InputBoxContainer = styled.div<{isFocused: boolean}>(({ theme, isFocused }) => {
+  return `
+      padding: ${theme.spacing.md}px;
+      border: 2px solid ${isFocused ? theme.colors.primary.main : theme.colors.background.light};
+      border-radius: ${theme.radii.sm}px;
+      display: flex;
+      flex-direction: center;
+      align-items: center;
+      gap: ${theme.spacing.sm}px;
+    `;
+});
+
+
 const InputBox = styled.input(({ theme }) => {
   return `
-      padding: ${theme.spacing.sm}px;
-      border: 2px solid ${theme.colors.primary.main};
-      border-radius: ${theme.radii.sm}px;
-      background-color: ${theme.colors.surface.main};
+      // padding: ${theme.spacing.sm}px;
+      border: none;
       color: ${theme.colors.text.main};
+      background-color: transparent;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
     `;
 });
 
@@ -32,19 +51,34 @@ interface InputProps {
   placeholder: string
   value: string
   type: "email" | "password" | "text"
+  icon?: IconDefinition
   onChange: (value: string) => void
 }
 
-const Input = ({label, type, placeholder, value, onChange}:InputProps) => {
+const Input = ({label, type, placeholder, value, icon, onChange}:InputProps) => {
+
+  const [focus, setFocus] = useState<boolean>(false)
+
   const handleOnChange = (event:ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value)
   }
 
-  // const{label, placeholder, value, onChange}=props
+  const handleOnFocus = () => {
+    setFocus(true)
+  }
+
+  const handleOnBlur = () => {
+    setFocus(false)
+  }
+
   return (
+    
     <InputContainer>
       <InputLabel>{label}</InputLabel>
-      <InputBox type={type} placeholder={placeholder} value={value} onChange={handleOnChange}/>
+      <InputBoxContainer isFocused={focus}>
+        {icon ? <FontAwesomeIcon icon={icon} size="1x" /> : null } 
+        <InputBox type={type} placeholder={placeholder} value={value} onChange={handleOnChange} onFocus={() => {handleOnFocus()}} onBlur={() => {handleOnBlur()}}/>
+      </InputBoxContainer>
     </InputContainer>
   )
 }
