@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { type IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, type ChangeEvent, type FocusEventHandler } from "react";
+import { useState, type ChangeEvent } from "react";
 
 const InputContainer = styled.div(({ theme }) => {
   return `
@@ -21,20 +21,19 @@ const InputLabel = styled.label(({ theme }) => {
 
 const InputBoxContainer = styled.div<{isFocused: boolean}>(({ theme, isFocused }) => {
   return `
-      padding: ${theme.spacing.md}px;
+      padding: ${theme.spacing.sm}px;
       border: 2px solid ${isFocused ? theme.colors.primary.main : theme.colors.background.light};
       border-radius: ${theme.radii.sm}px;
       display: flex;
       flex-direction: center;
       align-items: center;
-      gap: ${theme.spacing.sm}px;
+      gap: ${theme.spacing.xs}px;
     `;
 });
 
 
 const InputBox = styled.input(({ theme }) => {
   return `
-      // padding: ${theme.spacing.sm}px;
       border: none;
       color: ${theme.colors.text.main};
       background-color: transparent;

@@ -18,7 +18,7 @@ const FormContainer = styled.div(({ theme }) => {
   return `
       background-color: ${theme.colors.surface.main};
       color: ${theme.colors.text.main};
-      padding: ${theme.spacing.xl}px;
+      padding: ${theme.spacing.lg}px;
       border-radius: ${theme.radii.lg}px;
       gap: ${theme.spacing.xl}px;
       border: 2px solid ${theme.colors.background.light};
@@ -28,7 +28,7 @@ const FormContainer = styled.div(({ theme }) => {
       box-shadow: ${theme.shadows.md};
       display: flex;
       flex-direction: column;
-      margin: 0 ${theme.spacing.md}px;
+      margin: 0 ${theme.spacing.sm}px;
     `;
 });
 
@@ -56,6 +56,7 @@ const IconContainer = styled.div(({ theme }) => {
 const Heading = styled.h1(({ theme }) => {
   return `
       font-size: ${theme.fontSizes.lg}px;
+      line-height: ${theme.lineHeights.lg}px;
       font-family: ${theme.fontFamilies.heading};
       font-style: italic;
     `;
@@ -64,6 +65,7 @@ const Heading = styled.h1(({ theme }) => {
 const Body = styled.p(({ theme }) => {
   return `
       font-size: ${theme.fontSizes.sm}px;
+      line-height: ${theme.lineHeights.sm}px;
     `;
 });
 

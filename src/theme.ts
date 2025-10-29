@@ -37,6 +37,8 @@ export type Radii = Sizing
 
 export type FontSizes = ExtendedSizing
 
+export type LineHeights = ExtendedSizing
+
 export type Spacing = ExtendedSizing
 
 export interface FontFamilies {
@@ -57,6 +59,7 @@ export interface Theme {
   radii: Radii
   fontSizes: FontSizes
   fontFamilies: FontFamilies
+  lineHeights: LineHeights
   shadows: Shadows
 }
 
@@ -148,6 +151,13 @@ export const theme: Theme = {
     md: 18,
     lg: 24,
     xl: 30,
+  },
+  lineHeights:{
+    xs: 20,
+    sm: 30,
+    md: 34,
+    lg: 40,
+    xl: 50,
   },
   fontFamilies:{
     heading: "Caveat",
