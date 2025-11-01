@@ -14,15 +14,15 @@ const InputContainer = styled.div(({ theme }) => {
 
 const InputLabel = styled.label(({ theme }) => {
   return `
-      color: ${theme.colors.primary.main};
-      font-size: ${theme.fontSizes.sm}px;
+      color: ${theme.colors.text.light};
+      font-size: ${theme.fontSizes.xs}px;
     `;
 });
 
 const InputBoxContainer = styled.div<{isFocused: boolean}>(({ theme, isFocused }) => {
   return `
       padding: ${theme.spacing.sm}px;
-      border: 2px solid ${isFocused ? theme.colors.primary.main : theme.colors.background.light};
+      border: 2px solid ${isFocused ? theme.colors.primary.light : theme.colors.primary.main};
       border-radius: ${theme.radii.sm}px;
       display: flex;
       align-items: center;
@@ -34,7 +34,7 @@ const InputBoxContainer = styled.div<{isFocused: boolean}>(({ theme, isFocused }
 const InputBox = styled.input(({ theme }) => {
   return `
       border: none;
-      color: ${theme.colors.primary.main};
+      color: ${theme.colors.text.light};
       background-color: transparent;
       width: 100%;
 

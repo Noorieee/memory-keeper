@@ -1,40 +1,40 @@
-import type { CSSProperties } from "react";
-import styled from "@emotion/styled";
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from '@emotion/styled'
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const StyledButton = styled.button<{ size: Size; variant: Variant }>(
   ({ theme, size, variant }) => {
     const sizeMap: Record<Size, string> = {
       sm: `
-        padding: ${theme.spacing.xs}px ${theme.spacing.sm}px;
-        font-size: ${theme.fontSizes.xs}px;
+        padding: ${theme.spacing.sm}px ${theme.spacing.sm}px;
+        font-size: ${theme.fontSizes.xxs}px;
       `,
       md: `
         padding: ${theme.spacing.sm}px ${theme.spacing.md}px;
-        font-size: ${theme.fontSizes.sm}px;
+        font-size: ${theme.fontSizes.xs}px;
+        height: 38px;
       `,
       lg: `
         padding: ${theme.spacing.md}px ${theme.spacing.lg}px;
-        font-size: ${theme.fontSizes.md}px;
+        font-size: ${theme.fontSizes.sm}px;
       `,
-    };
+    }
 
     const variantMap: Record<Variant, string> = {
       solid: `
-        background-color: ${theme.colors.primary.dark};
-        color: ${theme.colors.primary.light};
+        background-color: ${theme.colors.violet.light};
+        color: ${theme.colors.text.dark};
       `,
       outline: `
         background-color: transparent;
-        color: ${theme.colors.primary.main};
+        color: ${theme.colors.text.dark};
         border: 1px solid ${theme.colors.primary.main};
       `,
       ghost: `
         background-color: transparent;
         color: ${theme.colors.primary.main};
       `,
-    };
+    }
 
     return `
       display: flex;
@@ -47,46 +47,58 @@ const StyledButton = styled.button<{ size: Size; variant: Variant }>(
       ${sizeMap[size]};
       ${variantMap[variant]};
       cursor: pointer;
-   `;
-  }
-);
+      font-weight: 500;
+
+      &:hover {
+        background-color: ${theme.colors.primary.main};
+        color: ${theme.colors.text.light};
+        transition: 0.2s ease;
+      }
+   `
+  },
+)
 
 interface IconProps {
-  iconDefinition: IconDefinition;
-  position: "left" | "right";
+  iconDefinition: IconDefinition
+  position: 'left' | 'right'
 }
 
-type Size = "sm" | "md" | "lg";
-type Variant = "solid" | "outline" | "ghost";
+type Size = 'sm' | 'md' | 'lg'
+type Variant = 'solid' | 'outline' | 'ghost'
 
 interface ButtonProps {
-  children: string;
-  size?: Size;
-  icon?: IconProps;
-  disabled?: boolean;
-  variant?: Variant;
-  onClick: () => void;
+  children: string
+  size?: Size
+  icon?: IconProps
+  disabled?: boolean
+  variant?: Variant
+  onClick: () => void
 }
 
 const Button = ({
   children,
-  size = "md",
+  size = 'md',
   icon,
   disabled = false,
-  variant = "solid",
-  onClick
+  variant = 'solid',
+  onClick,
 }: ButtonProps) => {
   return (
-    <StyledButton size={size} disabled={disabled} variant={variant} onClick={onClick}>
-      {icon && icon.position === "left" ? (
+    <StyledButton
+      size={size}
+      disabled={disabled}
+      variant={variant}
+      onClick={onClick}
+    >
+      {icon && icon.position === 'left' ? (
         <FontAwesomeIcon icon={icon.iconDefinition} size="1x" />
       ) : null}
       {children}
-      {icon && icon.position === "right" ? (
+      {icon && icon.position === 'right' ? (
         <FontAwesomeIcon icon={icon.iconDefinition} size="1x" />
       ) : null}
     </StyledButton>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button
