@@ -33,11 +33,11 @@ export interface ExtendedSizing extends Sizing {
   xl: number
 }
 
-export interface Radii extends Sizing {}
+export type Radii = Sizing
 
-export interface FontSizes extends ExtendedSizing {}
+export type FontSizes = ExtendedSizing
 
-export interface Spacing extends ExtendedSizing {}
+export type Spacing = ExtendedSizing
 
 export interface FontFamilies {
   heading: string
@@ -150,9 +150,9 @@ export const theme: Theme = {
     xl: 30,
   },
   fontFamilies:{
-    heading: "Comic Sans MS",
-    body: "Times New Roman",
-    handWritten: "Times New Roman"
+    heading: "Caveat",
+    body: "Nunito",
+    handWritten: "Indie Flower"
   },
   shadows:{
     sm: "rgba(99, 99, 99, 0.15) 0px 1px 4px 0px",

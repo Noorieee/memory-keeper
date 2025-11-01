@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBook } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
+import Input from "../../../../common/components/Input";
+import { useState } from "react";
 
 const Container = styled.div(({ theme }) => {
   return `
@@ -18,14 +20,15 @@ const FormContainer = styled.div(({ theme }) => {
       color: ${theme.colors.text.main};
       padding: ${theme.spacing.lg}px;
       border-radius: ${theme.radii.lg}px;
-      gap: ${theme.spacing.lg}px;
+      gap: ${theme.spacing.xl}px;
       border: 2px solid ${theme.colors.background.light};
       width: 100%;
-      max-width: 450px;
+      max-width: 425px;
       height: fit-content;
       box-shadow: ${theme.shadows.md};
       display: flex;
       flex-direction: column;
+      margin: 0 ${theme.spacing.sm}px;
     `;
 });
 
@@ -34,7 +37,8 @@ const IntroContainer = styled.div(({ theme }) => {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: ${theme.spacing.sm}px;
+      gap: ${theme.spacing.md}px;
+      text-align: center;
     `;
 });
 
@@ -49,7 +53,50 @@ const IconContainer = styled.div(({ theme }) => {
     `;
 });
 
+const Title = styled.h1(({ theme }) => {
+  return `
+      font-size: ${theme.fontSizes.lg}px;
+      font-family: ${theme.fontFamilies.heading};
+      font-style: italic;
+    `;
+});
+
+const Subtitle = styled.p(({ theme }) => {
+  return `
+      font-size: ${theme.fontSizes.sm}px;
+    `;
+});
+
+const InputsContainer = styled.div(({ theme }) => {
+  return `
+      display: flex;
+      flex-direction: column;    
+      gap: ${theme.spacing.lg}px;
+    `;
+});
+
+const Tagline = styled.p(({ theme }) => {
+  return `
+      text-align: center;
+      font-size: ${theme.fontSizes.sm}px;
+      font-family: ${theme.fontFamilies.heading};
+      font-style: italic;
+    `;
+});
+
 const LoginContainer = () => {
+  
+  const [emailValue, setEmailValue] = useState<string>("")
+  const [passwordValue, setPasswordValue] = useState<string>("")
+
+  const handleEmailOnChange = (emailValue:string) => {
+    setEmailValue(emailValue)
+  }
+
+  const handlePasswordOnChange = (passwordValue:string) => {
+    setPasswordValue(passwordValue)
+  }
+
   return (
     <Container>
       <FormContainer>
@@ -57,12 +104,14 @@ const LoginContainer = () => {
           <IconContainer>
             <FontAwesomeIcon icon={faBook} size="2x" />
           </IconContainer>
-          <h1>The Memory Keeper</h1>
-          <p>Welcome back to your private sanctuary</p>
-
+          <Title>The Memory Keeper</Title>
+          <Subtitle>Welcome back to your private sanctuary</Subtitle>
         </IntroContainer>
-        <p>fdgdfg</p>
-        <p>fddfg</p>
+        <InputsContainer>
+          <Input icon={faEnvelope} label={"Email"} type={"email"} placeholder={"your@email.com"} value={emailValue} onChange={handleEmailOnChange}/>
+          <Input icon={faLock} label={"Password"} type={"password"} placeholder={"••••••••"} value={passwordValue} onChange={handlePasswordOnChange}/>
+        </InputsContainer>
+        <Tagline>Your memories are safe with us ♡</Tagline>
       </FormContainer>
     </Container>
   )

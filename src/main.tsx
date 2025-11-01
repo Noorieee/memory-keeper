@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import "./index.css"
 import { routeTree } from './routeTree.gen'
+import "@fontsource/caveat/400.css"
+import "@fontsource/nunito/400.css"
+import "@fontsource/indie-flower/400.css"
 
 const router = createRouter({ routeTree })
 

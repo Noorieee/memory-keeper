@@ -12,6 +12,9 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@fontsource/caveat": "^5.2.8",
+    "@fontsource/indie-flower": "^5.2.7",
+    "@fontsource/nunito": "^5.2.7",
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
     "@fortawesome/free-brands-svg-icons": "^7.1.0",
     "@fortawesome/free-regular-svg-icons": "^7.1.0",
