@@ -55,27 +55,23 @@ interface InputProps {
 
 const Input = ({label, type, placeholder, value, icon, onChange}:InputProps) => {
 
-  const [focus, setFocus] = useState<boolean>(false)
+  const [isFocused, setIsFocused] = useState<boolean>(false)
 
   const handleOnChange = (event:ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value)
   }
 
-  const handleOnFocus = () => {
-    setFocus(true)
-  }
-
-  const handleOnBlur = () => {
-    setFocus(false)
+  const handleFocus = (isFocused: boolean) => {
+    setIsFocused(isFocused)
   }
 
   return (
     
     <InputContainer>
       <InputLabel>{label}</InputLabel>
-      <InputBoxContainer isFocused={focus}>
+      <InputBoxContainer isFocused={isFocused}>
         {icon ? <FontAwesomeIcon icon={icon} size="1x" /> : null } 
-        <InputBox type={type} placeholder={placeholder} value={value} onChange={handleOnChange} onFocus={() => {handleOnFocus()}} onBlur={() => {handleOnBlur()}}/>
+        <InputBox type={type} placeholder={placeholder} value={value} onChange={handleOnChange} onFocus={() => {handleFocus(true)}} onBlur={() => {handleFocus(false)}}/>
       </InputBoxContainer>
     </InputContainer>
   )

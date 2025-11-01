@@ -59,19 +59,17 @@ const IconContainer = styled.div(({ theme }) => {
     `;
 });
 
-const Heading = styled.h1(({ theme }) => {
+const Title = styled.h1(({ theme }) => {
   return `
       font-size: ${theme.fontSizes.lg}px;
-      line-height: ${theme.lineHeights.lg}px;
       font-family: ${theme.fontFamilies.heading};
       font-style: italic;
     `;
 });
 
-const Body = styled.p(({ theme }) => {
+const Subtitle = styled.p(({ theme }) => {
   return `
       font-size: ${theme.fontSizes.sm}px;
-      line-height: ${theme.lineHeights.sm}px;
     `;
 });
 
@@ -93,15 +91,17 @@ const Tagline = styled.p(({ theme }) => {
 });
 
 const LoginContainer = () => {
-  const [emailValue, setEmailValue] = useState<string>("");
-  const handleEmailOnChange = (emailValue: string) => {
-    setEmailValue(emailValue);
-  };
+  
+  const [emailValue, setEmailValue] = useState<string>("")
+  const [passwordValue, setPasswordValue] = useState<string>("")
 
-  const [passwordValue, setPasswordValue] = useState<string>("");
-  const handlePasswordOnChange = (passwordValue: string) => {
-    setPasswordValue(passwordValue);
-  };
+  const handleEmailOnChange = (emailValue:string) => {
+    setEmailValue(emailValue)
+  }
+
+  const handlePasswordOnChange = (passwordValue:string) => {
+    setPasswordValue(passwordValue)
+  }
 
   return (
     <Container>
@@ -110,8 +110,8 @@ const LoginContainer = () => {
           <IconContainer>
             <FontAwesomeIcon icon={faBook} size="2x" />
           </IconContainer>
-          <Heading>The Memory Keeper</Heading>
-          <Body>Welcome back to your private sanctuary</Body>
+          <Title>The Memory Keeper</Title>
+          <Subtitle>Welcome back to your private sanctuary</Subtitle>
         </IntroContainer>
         <InputsContainer>
           <Input
