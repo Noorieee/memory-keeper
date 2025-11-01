@@ -1,8 +1,14 @@
 import styled from "@emotion/styled";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBook, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowRight,
+  faBook,
+  faEnvelope,
+  faLock,
+} from "@fortawesome/free-solid-svg-icons";
 import Input from "../../../../common/components/Input";
 import { useState } from "react";
+import Button from "../../../../common/components/Button";
 
 const Container = styled.div(({ theme }) => {
   return `
@@ -17,7 +23,7 @@ const Container = styled.div(({ theme }) => {
 const FormContainer = styled.div(({ theme }) => {
   return `
       background-color: ${theme.colors.surface.main};
-      color: ${theme.colors.text.main};
+      color: ${theme.colors.primary.main};
       padding: ${theme.spacing.lg}px;
       border-radius: ${theme.radii.lg}px;
       gap: ${theme.spacing.xl}px;
@@ -87,16 +93,15 @@ const Tagline = styled.p(({ theme }) => {
 });
 
 const LoginContainer = () => {
-  
-  const [emailValue, setEmailValue] = useState<string>("")
-  const handleEmailOnChange = (emailValue:string) => {
-    setEmailValue(emailValue)
-  }
+  const [emailValue, setEmailValue] = useState<string>("");
+  const handleEmailOnChange = (emailValue: string) => {
+    setEmailValue(emailValue);
+  };
 
-  const [passwordValue, setPasswordValue] = useState<string>("")
-  const handlePasswordOnChange = (passwordValue:string) => {
-    setPasswordValue(passwordValue)
-  }
+  const [passwordValue, setPasswordValue] = useState<string>("");
+  const handlePasswordOnChange = (passwordValue: string) => {
+    setPasswordValue(passwordValue);
+  };
 
   return (
     <Container>
@@ -109,13 +114,28 @@ const LoginContainer = () => {
           <Body>Welcome back to your private sanctuary</Body>
         </IntroContainer>
         <InputsContainer>
-          <Input icon={faEnvelope} label={"Email"} type={"email"} placeholder={"your@email.com"} value={emailValue} onChange={handleEmailOnChange}/>
-          <Input icon={faLock} label={"Password"} type={"password"} placeholder={"••••••••"} value={passwordValue} onChange={handlePasswordOnChange}/>
+          <Input
+            icon={faEnvelope}
+            label={"Email"}
+            type={"email"}
+            placeholder={"your@email.com"}
+            value={emailValue}
+            onChange={handleEmailOnChange}
+          />
+          <Input
+            icon={faLock}
+            label={"Password"}
+            type={"password"}
+            placeholder={"••••••••"}
+            value={passwordValue}
+            onChange={handlePasswordOnChange}
+          />
+          <Button onClick={() => {console.log("login")}} icon={{iconDefinition: faArrowRight, position: "right"}}>Login</Button>
         </InputsContainer>
         <Tagline>Your memories are safe with us ♡</Tagline>
       </FormContainer>
     </Container>
-  )
-}
+  );
+};
 
-export default LoginContainer
+export default LoginContainer;

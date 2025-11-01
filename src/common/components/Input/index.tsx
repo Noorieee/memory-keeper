@@ -25,7 +25,6 @@ const InputBoxContainer = styled.div<{isFocused: boolean}>(({ theme, isFocused }
       border: 2px solid ${isFocused ? theme.colors.primary.main : theme.colors.background.light};
       border-radius: ${theme.radii.sm}px;
       display: flex;
-      flex-direction: center;
       align-items: center;
       gap: ${theme.spacing.xs}px;
     `;
@@ -35,7 +34,7 @@ const InputBoxContainer = styled.div<{isFocused: boolean}>(({ theme, isFocused }
 const InputBox = styled.input(({ theme }) => {
   return `
       border: none;
-      color: ${theme.colors.text.main};
+      color: ${theme.colors.primary.main};
       background-color: transparent;
       width: 100%;
 

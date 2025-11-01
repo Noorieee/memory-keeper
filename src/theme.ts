@@ -78,9 +78,9 @@ export const theme: Theme = {
       light: twColors.zinc[700],
     },
     text: {
-      main: twColors.violet[300],
-      dark: twColors.violet[500],
-      light: twColors.violet[200],
+      main: twColors.neutral[600],
+      dark: twColors.neutral[800],
+      light: twColors.neutral[200],
     },
     background: {
       main: twColors.zinc[900],
