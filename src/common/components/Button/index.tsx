@@ -8,15 +8,17 @@ const StyledButton = styled.button<{ size: Size; variant: Variant }>(
       sm: `
         padding: ${theme.spacing.sm}px ${theme.spacing.sm}px;
         font-size: ${theme.fontSizes.xxs}px;
-      `,
+        line-height: 1.2;
+        `,
       md: `
         padding: ${theme.spacing.sm}px ${theme.spacing.md}px;
         font-size: ${theme.fontSizes.xs}px;
-        height: 38px;
+        line-height: 1.4;
       `,
       lg: `
         padding: ${theme.spacing.md}px ${theme.spacing.lg}px;
         font-size: ${theme.fontSizes.sm}px;
+        line-height: 1.2;
       `,
     }
 

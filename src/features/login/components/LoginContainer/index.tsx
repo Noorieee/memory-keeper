@@ -78,6 +78,7 @@ const InputsContainer = styled.div(({ theme }) => {
       display: flex;
       flex-direction: column;    
       gap: ${theme.spacing.md}px;
+      margin-bottom: ${theme.spacing.sm}px;
     `
 })
 
