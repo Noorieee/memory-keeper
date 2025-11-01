@@ -1,11 +1,6 @@
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faArrowRight,
-  faBook,
-  faEnvelope,
-  faLock,
-} from '@fortawesome/free-solid-svg-icons'
+import { faBook, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
 import Input from '../../../../common/components/Input'
 import { useState } from 'react'
 import Button from '../../../../common/components/Button'
@@ -133,12 +128,12 @@ const LoginContainer = () => {
         </InputsContainer>
         <Button
           size="md"
-            onClick={() => {
-              console.log('login')
-            }}
-          >
-            Enter Your Journal
-          </Button>
+          onClick={() => {
+            console.log('login')
+          }}
+        >
+          Enter Your Journal
+        </Button>
         <Tagline>Your memories are safe with us ♡</Tagline>
       </FormContainer>
     </Container>
