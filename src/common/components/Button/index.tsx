@@ -9,17 +9,14 @@ const StyledButton = styled.button<{ size: Size; variant: Variant }>(
       sm: `
         padding: ${theme.spacing.xs}px ${theme.spacing.sm}px;
         font-size: ${theme.fontSizes.xs}px;
-        line-height: ${theme.lineHeights.xs}px;
       `,
       md: `
         padding: ${theme.spacing.sm}px ${theme.spacing.md}px;
         font-size: ${theme.fontSizes.sm}px;
-        line-height: ${theme.lineHeights.sm}px;
       `,
       lg: `
         padding: ${theme.spacing.md}px ${theme.spacing.lg}px;
         font-size: ${theme.fontSizes.md}px;
-        line-height: ${theme.lineHeights.md}px;
       `,
     };
 
