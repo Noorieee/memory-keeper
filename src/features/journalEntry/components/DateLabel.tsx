@@ -1,25 +1,22 @@
 import styled from '@emotion/styled'
-import type { Color, Colors } from '../../../theme'
+import type { ColorKeys } from '../../../theme'
 
-const Container = styled.p<{accentColor: Colors}>(({ theme, accentColor }) => {
-  return `
+const Container = styled.p<{ accentColor: ColorKeys }>(
+  ({ theme, accentColor }) => {
+    return `
       font-size: ${theme.fontSizes.sm}px;
-      background-color: ${theme.colors[accentColor]};
+      background-color: ${theme.colors[accentColor].main};
     `
-})
+  },
+)
 
 interface DateLabelProps {
   children: string
-  accentColor: string
-  date: string
+  accentColor: ColorKeys
 }
 
-const DateLabel = ({ accentColor, date, children }: DateLabelProps) => {
-  return (
-    <Container accentColor={accentColor} date={date}>
-      {children}
-    </Container>
-  )
+const DateLabel = ({ accentColor, children }: DateLabelProps) => {
+  return <Container accentColor={accentColor}>{children}</Container>
 }
 
 export default DateLabel

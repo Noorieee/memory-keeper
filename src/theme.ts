@@ -1,5 +1,6 @@
 import twColors from 'tailwindcss/colors'
 
+
 export interface Colors {
   primary: Color
   text: Color
@@ -15,6 +16,9 @@ export interface Colors {
   violet: Color
   orange: Color
 }
+
+export type ColorKeys = keyof Colors
+export type ColorKey = Colors[ColorKeys]
 
 export interface Color {
   main: string

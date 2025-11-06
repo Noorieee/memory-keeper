@@ -3,6 +3,8 @@ import { useJournalEntryBySlug } from '../api/get-journal-entry'
 import { generateImageUrl } from '../../../lib/generateImageUrl'
 import styled from '@emotion/styled'
 import { format } from 'date-fns'
+import DateLabel from './DateLabel'
+import type { ColorKeys } from '../../../theme'
 
 const Container = () => {
   const { journalEntry } = useParams({ from: '/$journalEntry/' })
@@ -48,7 +50,9 @@ const Container = () => {
     <Container>
       <EntryContainer>
         {/* Date */}
-        <div>{format(new Date(data.date), 'EEEE, MMMM ii, yyyy')}</div>
+        <DateLabel accentColor={data.accentColour as ColorKeys}>
+          {format(new Date(data.date), 'EEEE, MMMM ii, yyyy')}
+        </DateLabel>
         {/* Tags */}
         {data.tags.map((tag) => {
           return <p key={tag.id}>{tag.label}</p>
