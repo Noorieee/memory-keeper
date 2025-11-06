@@ -1,4 +1,4 @@
-import twColors from "tailwindcss/colors"
+import twColors from 'tailwindcss/colors'
 
 export interface Colors {
   primary: Color
@@ -29,8 +29,10 @@ export interface Sizing {
 }
 
 export interface ExtendedSizing extends Sizing {
+  xxs: number
   xs: number
   xl: number
+  xxl: number
 }
 
 export type Radii = Sizing
@@ -60,29 +62,56 @@ export interface Theme {
   shadows: Shadows
 }
 
-const brand = "violet"
+const colorLibrary = {
+  violet: {
+    '50': '#f7f7f8',
+    '100': '#ecebef',
+    '200': '#d4cfe2',
+    '300': '#b2a9cb',
+    '400': '#7f70a9',
+    '500': '#5f5086',
+    '600': '#4a3f69',
+    '700': '#3b3253',
+    '800': '#2d2640',
+    '900': '#23202d',
+    '950': '#131118',
+  },
+  purple: {
+    '50': '#f7f6f8',
+    '100': '#edebf0',
+    '200': '#d8c6eb',
+    '300': '#b899db',
+    '400': '#8955c3',
+    '500': '#68389f',
+    '600': '#512c7d',
+    '700': '#402262',
+    '800': '#311b4b',
+    '900': '#251933',
+    '950': '#140e1b',
+  },
+}
 
 export const theme: Theme = {
-  colors:{
+  colors: {
     primary: {
-      main: twColors[brand][300],
-      dark: twColors[brand][400],
-      light: twColors[brand][200],
+      main: colorLibrary.violet[500],
+      dark: colorLibrary.violet[700],
+      light: colorLibrary.violet[300],
     },
     surface: {
-      main: twColors.zinc[800],
-      dark: twColors.zinc[900],
-      light: twColors.zinc[700],
+      main: colorLibrary.violet[900],
+      dark: colorLibrary.violet[950],
+      light: colorLibrary.violet[800],
     },
     text: {
-      main: twColors.violet[300],
-      dark: twColors.violet[500],
-      light: twColors.violet[200],
+      main: twColors.neutral[600],
+      dark: twColors.neutral[900],
+      light: twColors.neutral[200],
     },
     background: {
-      main: twColors.zinc[900],
-      dark: twColors.zinc[950],
-      light: twColors.zinc[700],
+      main: colorLibrary.purple[900],
+      dark: colorLibrary.purple[950],
+      light: colorLibrary.purple[800],
     },
     danger: {
       main: twColors.amber[300],
@@ -120,43 +149,47 @@ export const theme: Theme = {
       light: twColors.emerald[100],
     },
     violet: {
-      main: twColors.violet[200],
-      dark: twColors.violet[300],
-      light: twColors.violet[100],
+      main: colorLibrary.violet[500],
+      dark: colorLibrary.violet[700],
+      light: colorLibrary.violet[300],
     },
     orange: {
       main: twColors.orange[200],
       dark: twColors.orange[300],
       light: twColors.orange[100],
-    }
+    },
   },
-  spacing:{
+  spacing: {
+    xxs: 2,
     xs: 4,
     sm: 8,
     md: 16,
     lg: 24,
-    xl: 32
+    xl: 32,
+    xxl: 40,
   },
-  radii:{
+  radii: {
     sm: 8,
     md: 12,
-    lg: 24
+    lg: 24,
   },
-  fontSizes:{
-    xs: 12,
+  fontSizes: {
+    xxs: 12,
+    xs: 14,
     sm: 16,
     md: 18,
     lg: 24,
-    xl: 30,
+    xl: 32,
+    xxl: 40,
   },
-  fontFamilies:{
-    heading: "Caveat",
-    body: "Nunito",
-    handWritten: "Indie Flower"
+  fontFamilies: {
+    heading: 'Caveat',
+    body: 'Nunito',
+    handWritten: 'Indie Flower',
   },
-  shadows:{
-    sm: "rgba(99, 99, 99, 0.15) 0px 1px 4px 0px",
-    md: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-    lg: "rgba(99, 99, 99, 0.25) 0px 5px 15px 0px"
-  }
+  shadows: {
+    sm: 'rgba(99, 99, 99, 0.15) 0px 1px 4px 0px',
+    md: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
+    lg: 'rgba(99, 99, 99, 0.25) 0px 5px 15px 0px',
+  },
 }

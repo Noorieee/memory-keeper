@@ -1,27 +1,28 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
-import Input from "../../../../common/components/Input";
-import { useState } from "react";
+import Input from '../../../../common/components/Input'
+import { useState } from 'react'
+import Button from '../../../../common/components/Button'
 
 const Container = styled.div(({ theme }) => {
   return `
-      background-color: ${theme.colors.background.main};
+      background-color: ${theme.colors.background.dark};
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-    `;
-});
+    `
+})
 
 const FormContainer = styled.div(({ theme }) => {
   return `
       background-color: ${theme.colors.surface.main};
-      color: ${theme.colors.text.main};
+      color: ${theme.colors.primary.light};
       padding: ${theme.spacing.lg}px;
       border-radius: ${theme.radii.lg}px;
-      gap: ${theme.spacing.xl}px;
-      border: 2px solid ${theme.colors.background.light};
+      gap: ${theme.spacing.lg}px;
+      border: 2px solid ${theme.colors.primary.main};
       width: 100%;
       max-width: 425px;
       height: fit-content;
@@ -29,8 +30,8 @@ const FormContainer = styled.div(({ theme }) => {
       display: flex;
       flex-direction: column;
       margin: 0 ${theme.spacing.sm}px;
-    `;
-});
+    `
+})
 
 const IntroContainer = styled.div(({ theme }) => {
   return `
@@ -39,8 +40,8 @@ const IntroContainer = styled.div(({ theme }) => {
       align-items: center;
       gap: ${theme.spacing.md}px;
       text-align: center;
-    `;
-});
+    `
+})
 
 const IconContainer = styled.div(({ theme }) => {
   return `
@@ -49,31 +50,32 @@ const IconContainer = styled.div(({ theme }) => {
       height: fit-content;
       background-color: ${theme.colors.primary.main};
       border-radius: ${theme.radii.lg}px;
-      color: ${theme.colors.surface.main};
-    `;
-});
+      color: ${theme.colors.primary.light};
+    `
+})
 
 const Title = styled.h1(({ theme }) => {
   return `
       font-size: ${theme.fontSizes.lg}px;
       font-family: ${theme.fontFamilies.heading};
       font-style: italic;
-    `;
-});
+    `
+})
 
 const Subtitle = styled.p(({ theme }) => {
   return `
       font-size: ${theme.fontSizes.sm}px;
-    `;
-});
+    `
+})
 
 const InputsContainer = styled.div(({ theme }) => {
   return `
       display: flex;
       flex-direction: column;    
-      gap: ${theme.spacing.lg}px;
-    `;
-});
+      gap: ${theme.spacing.md}px;
+      margin-bottom: ${theme.spacing.sm}px;
+    `
+})
 
 const Tagline = styled.p(({ theme }) => {
   return `
@@ -81,19 +83,18 @@ const Tagline = styled.p(({ theme }) => {
       font-size: ${theme.fontSizes.sm}px;
       font-family: ${theme.fontFamilies.heading};
       font-style: italic;
-    `;
-});
+    `
+})
 
 const LoginContainer = () => {
-  
-  const [emailValue, setEmailValue] = useState<string>("")
-  const [passwordValue, setPasswordValue] = useState<string>("")
+  const [emailValue, setEmailValue] = useState<string>('')
+  const [passwordValue, setPasswordValue] = useState<string>('')
 
-  const handleEmailOnChange = (emailValue:string) => {
+  const handleEmailOnChange = (emailValue: string) => {
     setEmailValue(emailValue)
   }
 
-  const handlePasswordOnChange = (passwordValue:string) => {
+  const handlePasswordOnChange = (passwordValue: string) => {
     setPasswordValue(passwordValue)
   }
 
@@ -108,9 +109,31 @@ const LoginContainer = () => {
           <Subtitle>Welcome back to your private sanctuary</Subtitle>
         </IntroContainer>
         <InputsContainer>
-          <Input icon={faEnvelope} label={"Email"} type={"email"} placeholder={"your@email.com"} value={emailValue} onChange={handleEmailOnChange}/>
-          <Input icon={faLock} label={"Password"} type={"password"} placeholder={"••••••••"} value={passwordValue} onChange={handlePasswordOnChange}/>
+          <Input
+            icon={faEnvelope}
+            label="Email"
+            type="email"
+            placeholder="your@email.com"
+            value={emailValue}
+            onChange={handleEmailOnChange}
+          />
+          <Input
+            icon={faLock}
+            label="Password"
+            type="password"
+            placeholder="••••••••"
+            value={passwordValue}
+            onChange={handlePasswordOnChange}
+          />
         </InputsContainer>
+        <Button
+          size="md"
+          onClick={() => {
+            console.log('login')
+          }}
+        >
+          Enter Your Journal
+        </Button>
         <Tagline>Your memories are safe with us ♡</Tagline>
       </FormContainer>
     </Container>
