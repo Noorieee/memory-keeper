@@ -5,6 +5,8 @@ import styled from '@emotion/styled'
 import { format } from 'date-fns'
 import DateLabel from './DateLabel'
 import type { ColorKeys } from '../../../theme'
+import Tag from './Tag'
+import { type IconProp } from '@fortawesome/fontawesome-svg-core'
 
 const Container = () => {
   const { journalEntry } = useParams({ from: '/$journalEntry/' })
@@ -21,11 +23,19 @@ const Container = () => {
   const Container = styled.div(({ theme }) => {
     return `
       background-color: ${theme.colors.background.dark};
-      // height: 100vh;
       color: white;
       display: flex;
       justify-content: center;
-      // align-items: center;
+    `
+  })
+
+  const TagsContainer = styled.div(({ theme }) => {
+    return `
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: ${theme.spacing.sm}px;
     `
   })
 
@@ -33,12 +43,12 @@ const Container = () => {
     return `
       background-color: ${theme.colors.surface.main};
       color: ${theme.colors.primary.light};
-      padding: ${theme.spacing.lg}px;
-      margin: ${theme.spacing.xl}px ${theme.spacing.lg}px;
+      padding: ${theme.spacing.xxl}px;
+      margin: ${theme.spacing.xxl}px ${theme.spacing.lg}px;
       border-radius: ${theme.radii.lg}px;
       gap: ${theme.spacing.md}px;
       width: 100%;
-      max-width: 700px;
+      max-width: 1200px;
       height: fit-content;
       box-shadow: ${theme.shadows.lg};
       display: flex;
@@ -46,17 +56,26 @@ const Container = () => {
     `
   })
 
+  console.log(data)
   return (
     <Container>
       <EntryContainer>
-        {/* Date */}
-        <DateLabel accentColor={data.accentColour as ColorKeys}>
-          {format(new Date(data.date), 'EEEE, MMMM ii, yyyy')}
-        </DateLabel>
-        {/* Tags */}
-        {data.tags.map((tag) => {
-          return <p key={tag.id}>{tag.label}</p>
-        })}
+        <TagsContainer>
+          {/* Date */}
+          <DateLabel accentColor={data.accentColour as ColorKeys}>
+            {format(new Date(data.date), 'EEEE, MMMM ii, yyyy')}
+          </DateLabel>
+          {/* Tags */}
+          {data.tags.map((tag) => {
+            return (
+              <Tag
+                key={tag.id}
+                icon={tag.icon.className as IconProp}
+                label={tag.label}
+              />
+            )
+          })}
+        </TagsContainer>
         {/* Title */}
         <p>{data.title}</p>
         {/* Image */}

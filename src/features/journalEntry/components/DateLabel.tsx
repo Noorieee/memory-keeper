@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import type { ColorKeys } from '../../../theme'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendar } from '@fortawesome/free-regular-svg-icons'
+import { faCalendar } from '@fortawesome/free-solid-svg-icons'
 
 const Container = styled.p<{ accentColor: ColorKeys }>(
   ({ theme, accentColor }) => {
@@ -11,7 +11,7 @@ const Container = styled.p<{ accentColor: ColorKeys }>(
       color: ${theme.colors.text.dark};
       background-color: ${theme.colors[accentColor].main};
       padding: ${theme.spacing.xs}px ${theme.spacing.sm}px;
-      border-radius: ${theme.spacing.lg}px; 
+      border-radius: ${theme.radii.lg}px; 
       display: flex;
       align-items: center;
       gap: ${theme.spacing.xxs}px;

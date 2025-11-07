@@ -1,6 +1,5 @@
 import twColors from 'tailwindcss/colors'
 
-
 export interface Colors {
   primary: Color
   text: Color
@@ -105,7 +104,7 @@ export const theme: Theme = {
     surface: {
       main: colorLibrary.violet[900],
       dark: colorLibrary.violet[950],
-      light: colorLibrary.violet[800],
+      light: colorLibrary.violet[700],
     },
     text: {
       main: twColors.neutral[600],
