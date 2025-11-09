@@ -1,5 +1,5 @@
 import { queryOptions, useQuery } from "@tanstack/react-query";
-import { getOneDoc } from "../../../lib/apiClient"
+import { getOneDoc } from "@/lib/apiClient"
 
 export interface JournalEntry {
   createdAt: string;

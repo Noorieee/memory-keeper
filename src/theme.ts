@@ -17,7 +17,7 @@ export interface Colors {
 }
 
 export type ColorKeys = keyof Colors
-export type ColorKey = Colors[ColorKeys]
+export type ColorKey = keyof Color
 
 export interface Color {
   main: string

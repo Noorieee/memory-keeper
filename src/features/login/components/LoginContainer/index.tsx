@@ -1,45 +1,29 @@
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
-import Input from '../../../../common/components/Input'
+import Input from '@/common/components/Input'
 import { useState } from 'react'
-import Button from '../../../../common/components/Button'
+import Button from '@/common/components/Button'
+import FlexContainer from '@/common/components/FlexContainer'
 
-const Container = styled.div(({ theme }) => {
+const Container = styled(FlexContainer)(({ theme }) => {
   return `
       background-color: ${theme.colors.background.dark};
       height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     `
 })
 
-const FormContainer = styled.div(({ theme }) => {
+const FormContainer = styled(FlexContainer)(({ theme }) => {
   return `
       background-color: ${theme.colors.surface.main};
       color: ${theme.colors.primary.light};
       padding: ${theme.spacing.lg}px;
       border-radius: ${theme.radii.lg}px;
-      gap: ${theme.spacing.lg}px;
       border: 2px solid ${theme.colors.primary.main};
-      width: 100%;
       max-width: 425px;
       height: fit-content;
       box-shadow: ${theme.shadows.md};
-      display: flex;
-      flex-direction: column;
       margin: 0 ${theme.spacing.sm}px;
-    `
-})
-
-const IntroContainer = styled.div(({ theme }) => {
-  return `
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: ${theme.spacing.md}px;
-      text-align: center;
     `
 })
 
@@ -68,21 +52,13 @@ const Subtitle = styled.p(({ theme }) => {
     `
 })
 
-const InputsContainer = styled.div(({ theme }) => {
-  return `
-      display: flex;
-      flex-direction: column;    
-      gap: ${theme.spacing.md}px;
-      margin-bottom: ${theme.spacing.sm}px;
-    `
-})
-
 const Tagline = styled.p(({ theme }) => {
   return `
       text-align: center;
       font-size: ${theme.fontSizes.sm}px;
       font-family: ${theme.fontFamilies.heading};
       font-style: italic;
+      width: 100%;
     `
 })
 
@@ -99,16 +75,16 @@ const LoginContainer = () => {
   }
 
   return (
-    <Container>
-      <FormContainer>
-        <IntroContainer>
+    <Container justify="center" align="center">
+      <FormContainer direction="column" gap="lg">
+        <FlexContainer direction="column" gap="md" align="center">
           <IconContainer>
             <FontAwesomeIcon icon={faBook} size="2x" />
           </IconContainer>
           <Title>The Memory Keeper</Title>
           <Subtitle>Welcome back to your private sanctuary</Subtitle>
-        </IntroContainer>
-        <InputsContainer>
+        </FlexContainer>
+        <FlexContainer direction="column" gap="md">
           <Input
             icon={faEnvelope}
             label="Email"
@@ -125,7 +101,7 @@ const LoginContainer = () => {
             value={passwordValue}
             onChange={handlePasswordOnChange}
           />
-        </InputsContainer>
+        </FlexContainer>
         <Button
           size="md"
           onClick={() => {

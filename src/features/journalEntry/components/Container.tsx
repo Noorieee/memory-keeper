@@ -1,12 +1,12 @@
 import { useParams } from '@tanstack/react-router'
 import { useJournalEntryBySlug } from '../api/get-journal-entry'
-import { generateImageUrl } from '../../../lib/generateImageUrl'
+import { generateImageUrl } from '@/lib/generateImageUrl'
 import styled from '@emotion/styled'
 import { format } from 'date-fns'
-import DateLabel from './DateLabel'
-import type { ColorKeys } from '../../../theme'
-import Tag from './Tag'
+import type { ColorKeys } from '@/theme'
 import { type IconProp } from '@fortawesome/fontawesome-svg-core'
+import FlexContainer from '@/common/components/FlexContainer'
+import Pill from './Pill'
 
 const Container = () => {
   const { journalEntry } = useParams({ from: '/$journalEntry/' })
@@ -20,62 +20,54 @@ const Container = () => {
     return <div>Error</div>
   }
 
-  const Container = styled.div(({ theme }) => {
+  const Container = styled(FlexContainer)(({ theme }) => {
     return `
       background-color: ${theme.colors.background.dark};
-      color: white;
-      display: flex;
-      justify-content: center;
     `
   })
 
-  const TagsContainer = styled.div(({ theme }) => {
-    return `
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      gap: ${theme.spacing.sm}px;
-    `
-  })
-
-  const EntryContainer = styled.div(({ theme }) => {
+  const EntryContainer = styled(FlexContainer)(({ theme }) => {
     return `
       background-color: ${theme.colors.surface.main};
       color: ${theme.colors.primary.light};
       padding: ${theme.spacing.xxl}px;
       margin: ${theme.spacing.xxl}px ${theme.spacing.lg}px;
       border-radius: ${theme.radii.lg}px;
-      gap: ${theme.spacing.md}px;
-      width: 100%;
       max-width: 1200px;
       height: fit-content;
       box-shadow: ${theme.shadows.lg};
-      display: flex;
-      flex-direction: column;
     `
   })
 
   console.log(data)
   return (
-    <Container>
-      <EntryContainer>
-        <TagsContainer>
+    <Container justify="center">
+      <EntryContainer direction="column" gap="md">
+        <FlexContainer gap="sm" align="center">
           {/* Date */}
-          <DateLabel accentColor={data.accentColour as ColorKeys}>
+          <Pill
+            color={data.accentColour as ColorKeys}
+            colorVariant="main"
+            size="md"
+            icon={'fa-solid fa-tag' as IconProp}
+          >
             {format(new Date(data.date), 'EEEE, MMMM ii, yyyy')}
-          </DateLabel>
+          </Pill>
           {/* Tags */}
           {data.tags.map((tag) => {
             return (
-              <Tag
+              <Pill
                 key={tag.id}
+                color="surface"
+                colorVariant="light"
+                size="sm"
                 icon={tag.icon.className as IconProp}
-                label={tag.label}
-              />
+              >
+                {tag.label}
+              </Pill>
             )
           })}
-        </TagsContainer>
+        </FlexContainer>
         {/* Title */}
         <p>{data.title}</p>
         {/* Image */}

@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import Nav from '../features/Nav'
+import Nav from '@/features/Nav'
 
 export const Route = createFileRoute('/')({
   component: Index,

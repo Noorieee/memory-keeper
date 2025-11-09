@@ -2,15 +2,7 @@ import styled from '@emotion/styled'
 import { type IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState, type ChangeEvent } from 'react'
-
-const InputContainer = styled.div(({ theme }) => {
-  return `
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: ${theme.spacing.sm}px;
-    `
-})
+import FlexContainer from '../FlexContainer'
 
 const InputLabel = styled.label(({ theme }) => {
   return `
@@ -19,18 +11,17 @@ const InputLabel = styled.label(({ theme }) => {
     `
 })
 
-const InputBoxContainer = styled.div<{ isFocused: boolean }>(
-  ({ theme, isFocused }) => {
-    return `
+const InputBoxContainer = styled(FlexContainer)<{ isFocused: boolean }>(({
+  theme,
+  isFocused,
+}) => {
+  return `
       padding: ${theme.spacing.sm}px;
       border: 2px solid ${isFocused ? theme.colors.primary.light : theme.colors.primary.main};
       border-radius: ${theme.radii.sm}px;
-      display: flex;
-      align-items: center;
-      gap: ${theme.spacing.xs}px;
+
     `
-  },
-)
+})
 
 const InputBox = styled.input(({ theme }) => {
   return `
@@ -73,9 +64,9 @@ const Input = ({
   }
 
   return (
-    <InputContainer>
+    <FlexContainer direction="column" gap="sm">
       <InputLabel>{label}</InputLabel>
-      <InputBoxContainer isFocused={isFocused}>
+      <InputBoxContainer isFocused={isFocused} gap="xs" align="center">
         {icon ? <FontAwesomeIcon icon={icon} size="1x" /> : null}
         <InputBox
           type={type}
@@ -90,7 +81,7 @@ const Input = ({
           }}
         />
       </InputBoxContainer>
-    </InputContainer>
+    </FlexContainer>
   )
 }
 

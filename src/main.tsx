@@ -1,11 +1,14 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
-import "./index.css"
+import './index.css'
 import { routeTree } from './routeTree.gen'
-import "@fontsource/caveat/400.css"
-import "@fontsource/nunito/400.css"
-import "@fontsource/indie-flower/400.css"
+import '@fontsource/caveat/400.css'
+import '@fontsource/caveat/700.css'
+import '@fontsource/nunito/400.css'
+import '@fontsource/nunito/700.css'
+import '@fontsource/indie-flower/400.css'
+
 import { queryClient } from './lib/queryClient'
 import { QueryClientProvider } from '@tanstack/react-query'
 
@@ -22,7 +25,7 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
-       <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
       </QueryClientProvider>
     </StrictMode>,

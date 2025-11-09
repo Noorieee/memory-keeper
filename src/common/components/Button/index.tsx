@@ -2,63 +2,61 @@ import styled from '@emotion/styled'
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const StyledButton = styled.button<{ size: Size; variant: Variant }>(
-  ({ theme, size, variant }) => {
-    const sizeMap: Record<Size, string> = {
-      sm: `
+const StyledButton = styled.button<{
+  size: Size
+  variant: Variant
+  block: boolean
+}>(({ theme, size, variant, block }) => {
+  const sizeMap: Record<Size, string> = {
+    sm: `
         padding: ${theme.spacing.sm}px ${theme.spacing.sm}px;
         font-size: ${theme.fontSizes.xxs}px;
         line-height: 1.2;
         `,
-      md: `
+    md: `
         padding: ${theme.spacing.sm}px ${theme.spacing.md}px;
         font-size: ${theme.fontSizes.xs}px;
         line-height: 1.4;
       `,
-      lg: `
+    lg: `
         padding: ${theme.spacing.md}px ${theme.spacing.lg}px;
         font-size: ${theme.fontSizes.sm}px;
         line-height: 1.2;
       `,
-    }
+  }
 
-    const variantMap: Record<Variant, string> = {
-      solid: `
+  const variantMap: Record<Variant, string> = {
+    solid: `
         background-color: ${theme.colors.violet.light};
         color: ${theme.colors.text.dark};
       `,
-      outline: `
+    outline: `
         background-color: transparent;
         color: ${theme.colors.text.dark};
         border: 1px solid ${theme.colors.primary.main};
       `,
-      ghost: `
+    ghost: `
         background-color: transparent;
         color: ${theme.colors.primary.main};
       `,
-    }
+  }
 
-    return `
-      display: flex;
-      flex-direction: row;    
-      align-items: center;
-      justify-content: center;
+  return `
       border-radius: ${theme.radii.sm}px;
-      gap: ${theme.spacing.xs}px;
       border: none;
       ${sizeMap[size]};
       ${variantMap[variant]};
       cursor: pointer;
       font-weight: 500;
-
+      width: ${block ? '100%' : 'fit-content'};
+      display: ${block ? 'block' : 'initial'};
       &:hover {
         background-color: ${theme.colors.primary.main};
         color: ${theme.colors.text.light};
         transition: 0.2s ease;
       }
    `
-  },
-)
+})
 
 interface IconProps {
   iconDefinition: IconDefinition
@@ -74,6 +72,7 @@ interface ButtonProps {
   icon?: IconProps
   disabled?: boolean
   variant?: Variant
+  block?: boolean
   onClick: () => void
 }
 
@@ -83,11 +82,13 @@ const Button = ({
   icon,
   disabled = false,
   variant = 'solid',
+  block = true,
   onClick,
 }: ButtonProps) => {
   return (
     <StyledButton
       size={size}
+      block={block}
       disabled={disabled}
       variant={variant}
       onClick={onClick}

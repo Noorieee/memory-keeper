@@ -1,6 +1,6 @@
 import axios from 'axios'
 import type { AxiosRequestConfig } from 'axios'
-import type { PayloadDocsResponse } from '../types/payload'
+import type { PayloadDocsResponse } from '@/types/payload'
 
 const baseURL = import.meta.env.VITE_API_BASE_URL + '/api' || '/api'
 
