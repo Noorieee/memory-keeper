@@ -48,7 +48,7 @@ const Container = () => {
             color={data.accentColour as ColorKeys}
             colorVariant="main"
             size="md"
-            icon={'fa-solid fa-tag' as IconProp}
+            icon={'fa-solid fa-calendar' as IconProp}
           >
             {format(new Date(data.date), 'EEEE, MMMM ii, yyyy')}
           </Pill>

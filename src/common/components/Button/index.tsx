@@ -11,17 +11,17 @@ const StyledButton = styled.button<{
     sm: `
         padding: ${theme.spacing.sm}px ${theme.spacing.sm}px;
         font-size: ${theme.fontSizes.xxs}px;
-        line-height: 1.2;
+        line-height: ${theme.lineHeights.xxs};
         `,
     md: `
         padding: ${theme.spacing.sm}px ${theme.spacing.md}px;
         font-size: ${theme.fontSizes.xs}px;
-        line-height: 1.4;
+        line-height: ${theme.lineHeights.md};
       `,
     lg: `
         padding: ${theme.spacing.md}px ${theme.spacing.lg}px;
         font-size: ${theme.fontSizes.sm}px;
-        line-height: 1.2;
+        line-height: ${theme.lineHeights.lg};
       `,
   }
 

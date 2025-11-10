@@ -32,19 +32,21 @@ const fontColorMap: Record<ColorKeys, ColorKey> = {
 
 const sizeMap: Record<
   keyof PillSize,
-  { fontSize: number; paddingy: number; paddingx: number; gap: number }
+  { fontSize: number; paddingy: number; paddingx: number; gap: number; lineHeight: number; }
 > = {
   sm: {
     fontSize: theme.fontSizes.xxs,
     paddingy: theme.spacing.xs,
     paddingx: theme.spacing.sm,
     gap: theme.spacing.xs,
+    lineHeight: theme.lineHeights.xs,
   },
   md: {
     fontSize: theme.fontSizes.md,
     paddingy: theme.spacing.xs,
     paddingx: theme.spacing.md,
     gap: theme.spacing.xs,
+    lineHeight: theme.lineHeights.md,
   },
 }
 
@@ -69,6 +71,7 @@ const Container = styled(FlexContainer)<{
 const Label = styled.p<{ size: keyof PillSize }>(({ size }) => {
   return `
     font-size: ${sizeMap[size].fontSize}px;
+    line-height: ${sizeMap[size].lineHeight};
   `
 })
 

@@ -50,6 +50,16 @@ export interface FontFamilies {
   handWritten: string
 }
 
+export interface LineHeights {
+  xxs: number
+  xs: number
+  sm: number
+  md: number
+  lg: number
+  xl: number
+  xxl: number
+}
+
 export interface Shadows {
   sm: string
   md: string
@@ -62,6 +72,7 @@ export interface Theme {
   radii: Radii
   fontSizes: FontSizes
   fontFamilies: FontFamilies
+  lineHeights: LineHeights
   shadows: Shadows
 }
 
@@ -189,6 +200,15 @@ export const theme: Theme = {
     heading: 'Caveat',
     body: 'Nunito',
     handWritten: 'Indie Flower',
+  },
+  lineHeights: {
+    xxs: 1.2,
+    xs: 1.25,
+    sm: 1.3,
+    md: 1.4,
+    lg: 1.35,
+    xl: 1.3,
+    xxl: 1.2,
   },
   shadows: {
     sm: 'rgba(99, 99, 99, 0.15) 0px 1px 4px 0px',
