@@ -16,6 +16,9 @@ export interface Colors {
   orange: Color
 }
 
+export type ColorKeys = keyof Colors
+export type ColorKey = keyof Color
+
 export interface Color {
   main: string
   dark: string
@@ -35,12 +38,6 @@ export interface ExtendedSizing extends Sizing {
   xxl: number
 }
 
-export type Radii = Sizing
-
-export type FontSizes = ExtendedSizing
-
-export type Spacing = ExtendedSizing
-
 export interface FontFamilies {
   heading: string
   body: string
@@ -55,10 +52,11 @@ export interface Shadows {
 
 export interface Theme {
   colors: Colors
-  spacing: Spacing
-  radii: Radii
-  fontSizes: FontSizes
+  spacing: ExtendedSizing
+  radii: Sizing
+  fontSizes: ExtendedSizing
   fontFamilies: FontFamilies
+  lineHeights: ExtendedSizing
   shadows: Shadows
 }
 
@@ -101,7 +99,7 @@ export const theme: Theme = {
     surface: {
       main: colorLibrary.violet[900],
       dark: colorLibrary.violet[950],
-      light: colorLibrary.violet[800],
+      light: colorLibrary.violet[700],
     },
     text: {
       main: twColors.neutral[600],
@@ -186,6 +184,15 @@ export const theme: Theme = {
     heading: 'Caveat',
     body: 'Nunito',
     handWritten: 'Indie Flower',
+  },
+  lineHeights: {
+    xxs: 1.2,
+    xs: 1.25,
+    sm: 1.3,
+    md: 1.4,
+    lg: 1.35,
+    xl: 1.3,
+    xxl: 1.2,
   },
   shadows: {
     sm: 'rgba(99, 99, 99, 0.15) 0px 1px 4px 0px',
