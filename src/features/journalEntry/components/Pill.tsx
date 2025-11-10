@@ -32,7 +32,13 @@ const fontColorMap: Record<ColorKeys, ColorKey> = {
 
 const sizeMap: Record<
   keyof PillSize,
-  { fontSize: number; paddingy: number; paddingx: number; gap: number; lineHeight: number; }
+  {
+    fontSize: number
+    paddingy: number
+    paddingx: number
+    gap: number
+    lineHeight: number
+  }
 > = {
   sm: {
     fontSize: theme.fontSizes.xxs,

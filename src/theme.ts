@@ -38,26 +38,10 @@ export interface ExtendedSizing extends Sizing {
   xxl: number
 }
 
-export type Radii = Sizing
-
-export type FontSizes = ExtendedSizing
-
-export type Spacing = ExtendedSizing
-
 export interface FontFamilies {
   heading: string
   body: string
   handWritten: string
-}
-
-export interface LineHeights {
-  xxs: number
-  xs: number
-  sm: number
-  md: number
-  lg: number
-  xl: number
-  xxl: number
 }
 
 export interface Shadows {
@@ -68,11 +52,11 @@ export interface Shadows {
 
 export interface Theme {
   colors: Colors
-  spacing: Spacing
-  radii: Radii
-  fontSizes: FontSizes
+  spacing: ExtendedSizing
+  radii: Sizing
+  fontSizes: ExtendedSizing
   fontFamilies: FontFamilies
-  lineHeights: LineHeights
+  lineHeights: ExtendedSizing
   shadows: Shadows
 }
 
