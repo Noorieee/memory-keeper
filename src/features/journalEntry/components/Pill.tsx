@@ -17,19 +17,17 @@ interface PillProps {
 const fontColorMap: Record<ColorKeys, ColorKey> = {
   amber: 'dark',
   surface: 'light',
-
-  // TODO: check that these should be light
-  pink: 'light',
-  sky: 'light',
-  success: 'light',
-  emerald: 'light',
+  pink: 'dark',
+  sky: 'dark',
+  success: 'dark',
+  emerald: 'dark',
   violet: 'light',
-  orange: 'light',
-  text: 'light',
+  orange: 'dark',
+  text: 'dark',
   background: 'light',
-  warning: 'light',
-  primary: 'light',
-  danger: 'light',
+  warning: 'dark',
+  primary: 'dark',
+  danger: 'dark',
 }
 
 const sizeMap: Record<
@@ -45,7 +43,7 @@ const sizeMap: Record<
   md: {
     fontSize: theme.fontSizes.md,
     paddingy: theme.spacing.xs,
-    paddingx: theme.spacing.sm,
+    paddingx: theme.spacing.md,
     gap: theme.spacing.xs,
   },
 }
@@ -68,7 +66,7 @@ const Container = styled(FlexContainer)<{
   `
 })
 
-const Label = styled.p<{ size: keyof PillSize }>(({ theme, size }) => {
+const Label = styled.p<{ size: keyof PillSize }>(({ size }) => {
   return `
     font-size: ${sizeMap[size].fontSize}px;
   `

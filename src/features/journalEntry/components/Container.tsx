@@ -39,7 +39,6 @@ const Container = () => {
     `
   })
 
-  console.log(data)
   return (
     <Container justify="center">
       <EntryContainer direction="column" gap="md">
