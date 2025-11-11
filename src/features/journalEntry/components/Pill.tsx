@@ -49,7 +49,7 @@ const sizeMap: Record<
   },
   md: {
     fontSize: theme.fontSizes.md,
-    paddingy: theme.spacing.xs,
+    paddingy: theme.spacing.sm,
     paddingx: theme.spacing.md,
     gap: theme.spacing.xs,
     lineHeight: theme.lineHeights.md,

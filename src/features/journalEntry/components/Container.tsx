@@ -7,6 +7,9 @@ import type { ColorKeys } from '@/theme'
 import { type IconProp } from '@fortawesome/fontawesome-svg-core'
 import FlexContainer from '@/common/components/FlexContainer'
 import Pill from './Pill'
+import { faHeart } from '@fortawesome/free-regular-svg-icons'
+import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Container = () => {
   const { journalEntry } = useParams({ from: '/$journalEntry/' })
@@ -33,15 +36,29 @@ const Container = () => {
       padding: ${theme.spacing.xxl}px;
       margin: ${theme.spacing.xxl}px ${theme.spacing.lg}px;
       border-radius: ${theme.radii.lg}px;
-      max-width: 1200px;
+      max-width: 1024px;
       height: fit-content;
       box-shadow: ${theme.shadows.lg};
     `
   })
 
+  const IconContainer = styled(FlexContainer)(({ theme }) => {
+    return `
+      color: ${theme.colors.warning.dark};
+      width: auto;
+    `
+  })
+
+  const EntryTitle = styled.h1(({ theme }) => {
+    return `
+      font-size: ${theme.fontSizes.xxl}px;
+      font-family: ${theme.fontFamilies.heading};
+    `
+  })
+
   return (
-    <Container justify="center">
-      <EntryContainer direction="column" gap="md">
+    <Container justify="center" align="center">
+      <EntryContainer direction="column" gap="lg">
         <FlexContainer gap="sm" align="center">
           {/* Date */}
           <Pill
@@ -66,9 +83,17 @@ const Container = () => {
               </Pill>
             )
           })}
+          {/* Favourited */}
+          <IconContainer>
+            {data.favourited ? (
+              <FontAwesomeIcon icon={faHeartSolid} size="1x" />
+            ) : (
+              <FontAwesomeIcon icon={faHeart} size="1x" />
+            )}
+          </IconContainer>
         </FlexContainer>
         {/* Title */}
-        <p>{data.title}</p>
+        <EntryTitle>{data.title}</EntryTitle>
         {/* Image */}
         {data.images.map((image) => {
           return (
