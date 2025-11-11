@@ -10,6 +10,7 @@ import Pill from './Pill'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import TextBlock from './TextBlock'
 
 const Container = () => {
   const { journalEntry } = useParams({ from: '/$journalEntry/' })
@@ -44,7 +45,7 @@ const Container = () => {
 
   const IconContainer = styled(FlexContainer)(({ theme }) => {
     return `
-      color: ${theme.colors.warning.dark};
+      color: ${theme.colors.primary.light};
       width: auto;
     `
   })
@@ -105,11 +106,15 @@ const Container = () => {
           )
         })}
         {/* Text */}
-        {data.sections.map((section) => {
+        {data.sections.map((section, index) => {
           return (
-            <p key={section.id} style={{ color: section.accentColour }}>
+            <TextBlock
+              index={index}
+              color={section.accentColour as ColorKeys}
+              key={section.id}
+            >
               {section.content}
-            </p>
+            </TextBlock>
           )
         })}
       </EntryContainer>
