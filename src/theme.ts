@@ -127,7 +127,7 @@ export const theme: Theme = {
       light: twColors.red[200],
     },
     amber: {
-      main: twColors.amber[300],
+      main: twColors.amber[200],
       dark: twColors.amber[400],
       light: twColors.amber[100],
     },

@@ -21,7 +21,7 @@ const fontColorMap: Record<ColorKeys, ColorKey> = {
   sky: 'dark',
   success: 'dark',
   emerald: 'dark',
-  violet: 'light',
+  violet: 'dark',
   orange: 'dark',
   text: 'dark',
   background: 'light',
