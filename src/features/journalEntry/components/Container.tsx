@@ -11,6 +11,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import TextBlock from './TextBlock'
+import LineDoodle from '../../../assets/line-doodle.svg?react'
 
 const Container = () => {
   const { journalEntry } = useParams({ from: '/$journalEntry/' })
@@ -54,6 +55,22 @@ const Container = () => {
     return `
       font-size: ${theme.fontSizes.xxl}px;
       font-family: ${theme.fontFamilies.heading};
+    `
+  })
+
+  const EntryFooter = styled(FlexContainer)(({ theme }) => {
+    return `
+      border-top: 2px dashed ${theme.colors.primary.main};
+      padding: ${theme.spacing.lg}px 0 0;
+      margin-top: ${theme.spacing.md}px;
+    `
+  })
+
+  const FooterSlogan = styled.p(({ theme }) => {
+    return `
+      color: ${theme.colors.primary.main};
+      font-family: ${theme.fontFamilies.heading};
+      font-size: ${theme.fontSizes.md}px;
     `
   })
 
@@ -117,9 +134,15 @@ const Container = () => {
             </TextBlock>
           )
         })}
+        {/* Footer */}
+        <EntryFooter justify="space-between">
+          <LineDoodle />
+          <FooterSlogan>♡ precious memories ♡</FooterSlogan>
+          <LineDoodle />
+        </EntryFooter>
       </EntryContainer>
     </Container>
-  )
+  )g
 }
 
 export default Container
