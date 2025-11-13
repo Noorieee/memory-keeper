@@ -12,6 +12,7 @@ import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import TextBlock from './TextBlock'
 import LineDoodle from '../../../assets/line-doodle.svg?react'
+import DiamondDoodle from '../../../assets/diamond-doodle.svg?react'
 
 const Container = () => {
   const { journalEntry } = useParams({ from: '/$journalEntry/' })
@@ -138,11 +139,11 @@ const Container = () => {
         <EntryFooter justify="space-between">
           <LineDoodle />
           <FooterSlogan>♡ precious memories ♡</FooterSlogan>
-          <LineDoodle />
+          <DiamondDoodle />
         </EntryFooter>
       </EntryContainer>
     </Container>
-  )g
+  )
 }
 
 export default Container
