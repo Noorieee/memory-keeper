@@ -1,9 +1,8 @@
 import { useParams } from '@tanstack/react-router'
 import { useJournalEntryBySlug } from '../api/get-journal-entry'
-import { generateImageUrl } from '@/lib/generateImageUrl'
 import styled from '@emotion/styled'
 import { format } from 'date-fns'
-import type { ColorKeys } from '@/theme'
+import { type ColorKeys } from '@/theme'
 import { type IconProp } from '@fortawesome/fontawesome-svg-core'
 import FlexContainer from '@/common/components/FlexContainer'
 import Pill from './Pill'
@@ -13,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import TextBlock from './TextBlock'
 import LineDoodle from '../../../assets/line-doodle.svg?react'
 import DiamondDoodle from '../../../assets/diamond-doodle.svg?react'
+import getImageUrl from '@/lib/getImageUrl'
 
 const Container = () => {
   const { journalEntry } = useParams({ from: '/$journalEntry/' })
@@ -72,8 +72,51 @@ const Container = () => {
       color: ${theme.colors.primary.main};
       font-family: ${theme.fontFamilies.heading};
       font-size: ${theme.fontSizes.md}px;
+      text-align: center;
     `
   })
+
+  const JournalImageFrame = styled.div<{ isFirst: boolean }>(
+    ({ theme, isFirst }) => {
+      // To do: make grid
+      return `
+        max-width: 50%;
+        border: 16px solid ${theme.colors.violet.light};
+        border-radius: ${theme.radii.md}px;
+        box-shadow: ${theme.shadows.md};
+        margin: ${theme.spacing.md}px 0;
+        transform: rotate(${isFirst ? '-3deg' : '3deg'});
+        transition: transform 0.2s ease;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: -24px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80px;
+          height: 20px;
+          background-color: ${isFirst ? theme.colors.amber.main : theme.colors.violet.main};
+          opacity: 0.6;
+        }
+
+        &:hover {
+          transform: rotate(0deg) scale(1.05);
+        }
+        
+    `
+    },
+  )
+
+  const JournalImage = styled.img(() => {
+    return `
+      aspect-ratio: 3 / 2;
+  `
+  })
+
+  const imageList = data.images
+    .map((image) => getImageUrl(image).standard)
+    .filter((image) => image !== undefined)
 
   return (
     <Container justify="center" align="center">
@@ -114,15 +157,19 @@ const Container = () => {
         {/* Title */}
         <EntryTitle>{data.title}</EntryTitle>
         {/* Image */}
-        {data.images.map((image) => {
-          return (
-            <img
-              key={image.id}
-              src={generateImageUrl(image.url)}
-              alt={image.alt}
-            />
-          )
-        })}
+        <FlexContainer gap="xl">
+          {/* if index is first*/}
+          {imageList.map((image, index) => {
+            return (
+              <JournalImageFrame
+                isFirst={index === 0}
+                key={`${image.url}-${index}`}
+              >
+                <JournalImage src={image.url || ''} alt={image.alt} />
+              </JournalImageFrame>
+            )
+          })}
+        </FlexContainer>
         {/* Text */}
         {data.sections.map((section, index) => {
           return (
@@ -147,3 +194,12 @@ const Container = () => {
 }
 
 export default Container
+
+// {data.images.map((image, index) => {
+//             return (
+//               <JournalImageFrame isFirst={index === 0} key={image.id}>
+//                 <JournalImage
+//                   src={generateImageUrl(image.url)}
+//                   alt={image.alt}
+//                 />
+//               </JournalImageFrame>
