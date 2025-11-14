@@ -45,6 +45,26 @@ const Container = () => {
     `
   })
 
+  const DetailsContainer = styled.div(({ theme }) => {
+    return `
+      display: grid;
+      grid-template-columns: fit-content(100%) 1fr;
+      gap: ${theme.spacing.sm}px;
+    `
+  })
+
+  const DatePill = styled(Pill)(() => {
+    return `
+      height: fit-content;
+    `
+  })
+
+  const PillContainer = styled(FlexContainer)(() => {
+    return `
+      flex-wrap: wrap;
+    `
+  })
+
   const IconContainer = styled(FlexContainer)(({ theme }) => {
     return `
       color: ${theme.colors.primary.light};
@@ -59,28 +79,17 @@ const Container = () => {
     `
   })
 
-  const EntryFooter = styled(FlexContainer)(({ theme }) => {
+  const ImagesContainer = styled.div(({ theme }) => {
     return `
-      border-top: 2px dashed ${theme.colors.primary.main};
-      padding: ${theme.spacing.lg}px 0 0;
-      margin-top: ${theme.spacing.md}px;
-    `
-  })
-
-  const FooterSlogan = styled.p(({ theme }) => {
-    return `
-      color: ${theme.colors.primary.main};
-      font-family: ${theme.fontFamilies.heading};
-      font-size: ${theme.fontSizes.md}px;
-      text-align: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: ${theme.spacing.xl}px;
     `
   })
 
   const JournalImageFrame = styled.div<{ isFirst: boolean }>(
     ({ theme, isFirst }) => {
-      // To do: make grid
       return `
-        max-width: 50%;
         border: 16px solid ${theme.colors.violet.light};
         border-radius: ${theme.radii.md}px;
         box-shadow: ${theme.shadows.md};
@@ -103,15 +112,31 @@ const Container = () => {
         &:hover {
           transform: rotate(0deg) scale(1.05);
         }
-        
-    `
+      `
     },
   )
 
   const JournalImage = styled.img(() => {
     return `
       aspect-ratio: 3 / 2;
-  `
+    `
+  })
+
+  const EntryFooter = styled(FlexContainer)(({ theme }) => {
+    return `
+      border-top: 2px dashed ${theme.colors.primary.main};
+      padding: ${theme.spacing.lg}px 0 0;
+      margin-top: ${theme.spacing.md}px;
+    `
+  })
+
+  const FooterSlogan = styled.p(({ theme }) => {
+    return `
+      color: ${theme.colors.primary.main};
+      font-family: ${theme.fontFamilies.heading};
+      font-size: ${theme.fontSizes.md}px;
+      text-align: center;
+    `
   })
 
   const imageList = data.images
@@ -121,43 +146,45 @@ const Container = () => {
   return (
     <Container justify="center" align="center">
       <EntryContainer direction="column" gap="lg">
-        <FlexContainer gap="sm" align="center">
+        <DetailsContainer>
           {/* Date */}
-          <Pill
+          <DatePill
             color={data.accentColour as ColorKeys}
             colorVariant="main"
             size="md"
             icon={'fa-solid fa-calendar' as IconProp}
           >
             {format(new Date(data.date), 'EEEE, MMMM ii, yyyy')}
-          </Pill>
-          {/* Tags */}
-          {data.tags.map((tag) => {
-            return (
-              <Pill
-                key={tag.id}
-                color="surface"
-                colorVariant="light"
-                size="sm"
-                icon={tag.icon.className as IconProp}
-              >
-                {tag.label}
-              </Pill>
-            )
-          })}
-          {/* Favourited */}
-          <IconContainer>
-            {data.favourited ? (
-              <FontAwesomeIcon icon={faHeartSolid} size="1x" />
-            ) : (
-              <FontAwesomeIcon icon={faHeart} size="1x" />
-            )}
-          </IconContainer>
-        </FlexContainer>
+          </DatePill>
+          <PillContainer gap="sm" align="center">
+            {/* Tags */}
+            {data.tags.map((tag) => {
+              return (
+                <Pill
+                  key={tag.id}
+                  color="surface"
+                  colorVariant="light"
+                  size="sm"
+                  icon={tag.icon.className as IconProp}
+                >
+                  {tag.label}
+                </Pill>
+              )
+            })}
+            {/* Favourited */}
+            <IconContainer>
+              {data.favourited ? (
+                <FontAwesomeIcon icon={faHeartSolid} size="1x" />
+              ) : (
+                <FontAwesomeIcon icon={faHeart} size="1x" />
+              )}
+            </IconContainer>
+          </PillContainer>
+        </DetailsContainer>
         {/* Title */}
         <EntryTitle>{data.title}</EntryTitle>
         {/* Image */}
-        <FlexContainer gap="xl">
+        <ImagesContainer>
           {/* if index is first*/}
           {imageList.map((image, index) => {
             return (
@@ -169,7 +196,7 @@ const Container = () => {
               </JournalImageFrame>
             )
           })}
-        </FlexContainer>
+        </ImagesContainer>
         {/* Text */}
         {data.sections.map((section, index) => {
           return (

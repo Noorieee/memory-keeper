@@ -12,6 +12,7 @@ interface PillProps {
   colorVariant: ColorKey
   size: keyof PillSize
   icon: IconProp
+  className?: string
 }
 
 const fontColorMap: Record<ColorKeys, ColorKey> = {
@@ -60,6 +61,7 @@ const Container = styled(FlexContainer)<{
   color: ColorKeys
   colorVariant: ColorKey
   size: keyof PillSize
+  className: string
 }>(({ theme, color, colorVariant, size }) => {
   return `
     width: fit-content;
@@ -81,7 +83,14 @@ const Label = styled.p<{ size: keyof PillSize }>(({ size }) => {
   `
 })
 
-const Pill = ({ children, color, colorVariant, size, icon }: PillProps) => {
+const Pill = ({
+  children,
+  color,
+  colorVariant,
+  size,
+  icon,
+  className = '',
+}: PillProps) => {
   return (
     <Container
       color={color}
@@ -89,6 +98,7 @@ const Pill = ({ children, color, colorVariant, size, icon }: PillProps) => {
       size={size}
       gap="xxs"
       align="center"
+      className={className}
     >
       <FontAwesomeIcon icon={icon} size="1x" />
       <Label size={size}>{children}</Label>
