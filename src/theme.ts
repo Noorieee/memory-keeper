@@ -5,6 +5,7 @@ export interface Colors {
   text: Color
   surface: Color
   background: Color
+  neutral: Color
   danger: Color
   success: Color
   warning: Color
@@ -110,6 +111,11 @@ export const theme: Theme = {
       main: colorLibrary.purple[900],
       dark: colorLibrary.purple[950],
       light: colorLibrary.purple[800],
+    },
+    neutral: {
+      main: twColors.stone[300],
+      dark: twColors.stone[400],
+      light: twColors.stone[200],
     },
     danger: {
       main: twColors.amber[300],

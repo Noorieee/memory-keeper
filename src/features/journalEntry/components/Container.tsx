@@ -90,7 +90,7 @@ const Container = () => {
   const JournalImageFrame = styled.div<{ isFirst: boolean }>(
     ({ theme, isFirst }) => {
       return `
-        border: 16px solid ${theme.colors.violet.light};
+        border: 16px solid ${theme.colors.neutral.light};
         border-radius: ${theme.radii.md}px;
         box-shadow: ${theme.shadows.md};
         margin: ${theme.spacing.md}px 0;
@@ -221,12 +221,3 @@ const Container = () => {
 }
 
 export default Container
-
-// {data.images.map((image, index) => {
-//             return (
-//               <JournalImageFrame isFirst={index === 0} key={image.id}>
-//                 <JournalImage
-//                   src={generateImageUrl(image.url)}
-//                   alt={image.alt}
-//                 />
-//               </JournalImageFrame>
