@@ -26,11 +26,11 @@ const Container = () => {
     return <div>Error</div>
   }
 
-  const Container = styled(FlexContainer)(({ theme }) => {
-    return `
-      background-color: ${theme.colors.background.dark};
-    `
-  })
+  // const Container = styled(FlexContainer)(({ theme }) => {
+  //   return `
+  //     background-color: ${theme.colors.background.dark};
+  //   `
+  // })
 
   const EntryContainer = styled(FlexContainer)(({ theme }) => {
     return `
@@ -144,7 +144,7 @@ const Container = () => {
     .filter((image) => image !== undefined)
 
   return (
-    <Container justify="center" align="center">
+    <FlexContainer justify="center" align="center">
       <EntryContainer direction="column" gap="lg">
         <DetailsContainer>
           {/* Date */}
@@ -216,7 +216,7 @@ const Container = () => {
           <DiamondDoodle />
         </EntryFooter>
       </EntryContainer>
-    </Container>
+    </FlexContainer>
   )
 }
 

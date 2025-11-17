@@ -6,9 +6,8 @@ import { useState } from 'react'
 import Button from '@/common/components/Button'
 import FlexContainer from '@/common/components/FlexContainer'
 
-const Container = styled(FlexContainer)(({ theme }) => {
+const Container = styled(FlexContainer)(() => {
   return `
-      background-color: ${theme.colors.background.dark};
       height: 100vh;
     `
 })
