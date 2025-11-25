@@ -29,6 +29,7 @@ const fontColorMap: Record<ColorKeys, ColorKey> = {
   warning: 'dark',
   primary: 'dark',
   danger: 'dark',
+  neutral: 'dark',
 }
 
 const sizeMap: Record<

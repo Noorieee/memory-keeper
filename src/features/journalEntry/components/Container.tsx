@@ -127,6 +127,7 @@ const Container = () => {
       border-top: 2px dashed ${theme.colors.primary.main};
       padding: ${theme.spacing.lg}px 0 0;
       margin-top: ${theme.spacing.md}px;
+      position: relative;
     `
   })
 
