@@ -5,10 +5,22 @@ import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons'
 
-const LinkContainer = styled.p(({ theme }) => {
+const Container = styled(FlexContainer)(({ theme }) => {
+  return `
+  padding: ${theme.spacing.sm}px;
+  border-radius: ${theme.radii.md}px;
+  transition: 0.2s ease;
+  width: auto;
+
+  &:hover {
+    background-color: ${theme.colors.primary.dark};
+  `
+})
+
+const LinkContainer = styled(FlexContainer)(({ theme }) => {
   return `
     font-size: ${theme.fontSizes.sm}px;
-    color: white;
+    color: ${theme.colors.neutral.light};
     text-decoration: none;
   `
 })
@@ -18,13 +30,13 @@ const IconContainer = styled(FlexContainer)<{
   iconBackgroundColor: ColorKeys
 }>(({ theme, iconColor, iconBackgroundColor }) => {
   return `
-      width: 40px;
-      height: 40px;
-      min-width: 40px;
-      min-height: 40px;
+      width: 35px;
+      height: 35px;
+      min-width: 35px;
+      min-height: 35px;
       border-radius: ${theme.radii.lg}px;
       color: ${theme.colors[iconColor].light};
-      background-color: ${theme.colors[iconBackgroundColor].main};
+      background-color: color-mix(in oklab, ${theme.colors[iconBackgroundColor].main} 80%, transparent 10%);
     `
 })
 
@@ -33,8 +45,7 @@ const ComingSoon = styled.p(
   font-size: ${theme.fontSizes.xs}px;
   font-family: ${theme.fontFamilies.handWritten};
   color: ${theme.colors.neutral.main};
-  opacity: .6;
-  margin: 0;
+  opacity: 0.6;
 `,
 )
 
@@ -55,7 +66,7 @@ const NavLink = ({
 }: LinkProps) => {
   if (!to) {
     return (
-      <FlexContainer align="center">
+      <Container align="center" gap="md">
         <IconContainer
           iconColor={iconColor}
           iconBackgroundColor={iconBackgroundColor}
@@ -69,13 +80,13 @@ const NavLink = ({
           <LinkContainer>{label}</LinkContainer>
           <ComingSoon>Coming soon...</ComingSoon>
         </FlexContainer>
-      </FlexContainer>
+      </Container>
     )
   }
 
   return (
     <Link to={to}>
-      <FlexContainer align="center">
+      <Container align="center" gap="md">
         <IconContainer
           iconColor={iconColor}
           iconBackgroundColor={iconBackgroundColor}
@@ -86,7 +97,7 @@ const NavLink = ({
         </IconContainer>
 
         <LinkContainer>{label}</LinkContainer>
-      </FlexContainer>
+      </Container>
     </Link>
   )
 }
