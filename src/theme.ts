@@ -5,6 +5,7 @@ export interface Colors {
   text: Color
   surface: Color
   background: Color
+  neutral: Color
   danger: Color
   success: Color
   warning: Color
@@ -111,6 +112,11 @@ export const theme: Theme = {
       dark: colorLibrary.purple[950],
       light: colorLibrary.purple[800],
     },
+    neutral: {
+      main: twColors.stone[300],
+      dark: twColors.stone[400],
+      light: twColors.stone[200],
+    },
     danger: {
       main: twColors.amber[300],
       dark: twColors.amber[400],
@@ -128,32 +134,32 @@ export const theme: Theme = {
     },
     amber: {
       main: twColors.amber[200],
-      dark: twColors.amber[300],
+      dark: twColors.amber[400],
       light: twColors.amber[100],
     },
     pink: {
-      main: twColors.pink[200],
-      dark: twColors.pink[300],
+      main: twColors.pink[300],
+      dark: twColors.pink[400],
       light: twColors.pink[100],
     },
     sky: {
-      main: twColors.sky[200],
-      dark: twColors.sky[300],
+      main: twColors.sky[300],
+      dark: twColors.sky[400],
       light: twColors.sky[100],
     },
     emerald: {
-      main: twColors.emerald[200],
-      dark: twColors.emerald[300],
+      main: twColors.emerald[300],
+      dark: twColors.emerald[400],
       light: twColors.emerald[100],
     },
     violet: {
-      main: colorLibrary.violet[500],
-      dark: colorLibrary.violet[700],
-      light: colorLibrary.violet[300],
+      main: colorLibrary.violet[300],
+      dark: colorLibrary.violet[400],
+      light: colorLibrary.violet[200],
     },
     orange: {
-      main: twColors.orange[200],
-      dark: twColors.orange[300],
+      main: twColors.orange[300],
+      dark: twColors.orange[400],
       light: twColors.orange[100],
     },
   },
@@ -186,13 +192,13 @@ export const theme: Theme = {
     handWritten: 'Indie Flower',
   },
   lineHeights: {
-    xxs: 1.2,
+    xxs: 1.2, // small text, tight is fine
     xs: 1.25,
     sm: 1.3,
     md: 1.4,
-    lg: 1.35,
-    xl: 1.3,
-    xxl: 1.2,
+    lg: 1.45,
+    xl: 1.5,
+    xxl: 1.55,
   },
   shadows: {
     sm: 'rgba(99, 99, 99, 0.15) 0px 1px 4px 0px',
