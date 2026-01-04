@@ -26,12 +26,6 @@ const Container = () => {
     return <div>Error</div>
   }
 
-  // const Container = styled(FlexContainer)(({ theme }) => {
-  //   return `
-  //     background-color: ${theme.colors.background.dark};
-  //   `
-  // })
-
   const EntryContainer = styled(FlexContainer)(({ theme }) => {
     return `
       background-color: ${theme.colors.surface.main};

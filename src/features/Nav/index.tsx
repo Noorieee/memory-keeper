@@ -30,46 +30,46 @@ const NavContent = styled(FlexContainer)(() => {
 
 const NavHeader = styled(FlexContainer)(({ theme }) => {
   return `
-      padding: 0 ${theme.spacing.xxs}px ${theme.spacing.md}px ${theme.spacing.xxs}px;
-      border-bottom: 1px solid ${theme.colors.primary.main};
-    `
+    padding: 0 ${theme.spacing.xxs}px ${theme.spacing.md}px ${theme.spacing.xxs}px;
+    border-bottom: 1px solid ${theme.colors.primary.main};
+  `
 })
 
 const NavHeading = styled.h2(({ theme }) => {
   return `
-      font-family: ${theme.fontFamilies.heading};
-      color: ${theme.colors.primary.light};
-    `
+    font-family: ${theme.fontFamilies.heading};
+    color: ${theme.colors.primary.light};
+  `
 })
 
 const NavSlogan = styled.p(({ theme }) => {
   return `
-      font-size: ${theme.fontSizes.xs}px;
-      color: ${theme.colors.neutral.dark};
-    `
+    font-size: ${theme.fontSizes.xs}px;
+    color: ${theme.colors.neutral.dark};
+  `
 })
 
 const IconContainer = styled(FlexContainer)(({ theme }) => {
   return `
-      padding: ${theme.spacing.sm}px;
-      width: 40px;
-      height: 40px;
-      min-width: 40px;
-      min-height: 40px;
-      background-color: ${theme.colors.primary.light};
-      border-radius: ${theme.radii.lg}px;
-      color: ${theme.colors.primary.dark};
-    `
+    padding: ${theme.spacing.sm}px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    background-color: ${theme.colors.primary.light};
+    border-radius: ${theme.radii.lg}px;
+    color: ${theme.colors.primary.dark};
+  `
 })
 
 const NavFooter = styled(FlexContainer)(({ theme }) => {
   return `
-      padding-top: ${theme.spacing.md}px;
-      border-top: 1px solid ${theme.colors.primary.main};
-      margin-top: auto;
-      font-size: ${theme.fontSizes.sm}px;
-      text-decoration: none;
-    `
+    padding-top: ${theme.spacing.md}px;
+    border-top: 1px solid ${theme.colors.primary.main};
+    margin-top: auto;
+    font-size: ${theme.fontSizes.sm}px;
+    text-decoration: none;
+  `
 })
 
 const Nav = () => {
@@ -95,7 +95,6 @@ const Nav = () => {
             iconBackgroundColor="orange"
           />
           <NavLink
-            to=""
             icon={faCalendar}
             label="Date Counter"
             iconColor="amber"
